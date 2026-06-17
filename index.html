@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guessline</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="play-space" aria-labelledby="game-title">
+        <div class="mast">
+          <div>
+            <p class="kicker">Daily-style word guessing</p>
+            <h1 id="game-title">Guessline</h1>
+          </div>
+          <button class="icon-button" id="new-round" type="button" aria-label="Start a new round" title="New round">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </div>
+
+        <div class="mystery-panel">
+          <div class="length-row">
+            <span id="length-label">5 letters</span>
+            <span id="round-label">Round 1</span>
+          </div>
+          <div id="mystery-word" class="mystery-word" aria-label="Unknown word slots"></div>
+          <p id="status-line" class="status-line">Start by guessing any word with the same length.</p>
+        </div>
+
+        <form class="guess-form" id="guess-form" autocomplete="off">
+          <label for="guess-input">Your guess</label>
+          <div class="guess-entry">
+            <input id="guess-input" name="guess" type="text" inputmode="text" spellcheck="false" />
+            <button type="submit">Guess</button>
+          </div>
+        </form>
+
+        <div class="board" id="board" aria-live="polite"></div>
+      </section>
+
+      <aside class="side-panel" aria-label="Game details">
+        <div class="score-box">
+          <span class="score-label">Guess Energy</span>
+          <strong id="score">100</strong>
+        </div>
+
+        <div class="mini-stats">
+          <div>
+            <span>Guesses</span>
+            <strong id="guess-count">0</strong>
+          </div>
+          <div>
+            <span>Best Streak</span>
+            <strong id="streak">0</strong>
+          </div>
+        </div>
+
+        <section class="clue-bank" aria-labelledby="clue-title">
+          <h2 id="clue-title">Clue Board</h2>
+          <div class="clue-grid">
+            <div>
+              <span>Locked</span>
+              <p id="locked-letters">None yet</p>
+            </div>
+            <div>
+              <span>In word</span>
+              <p id="warm-letters">None yet</p>
+            </div>
+            <div>
+              <span>Not here</span>
+              <p id="cold-letters">None yet</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="rules" aria-labelledby="rules-title">
+          <h2 id="rules-title">How It Plays</h2>
+          <p>The word length is revealed first. Every guess paints letters as locked, close, or out, so the fun stays on reading the board and making the next guess.</p>
+        </section>
+      </aside>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
